@@ -15,8 +15,37 @@ public class Exercise1 {
 	}
 
 	public String convertirBaseGabriel(int a) {
-
-		// TO DO
-		return "El numero proporcionado no esta en base Gabriel.";
+		int Estado = 0, k = 0, conversion = 0;
+		int numero = a;
+		while (Math.pow(10,k) < numero) {
+			Estado = comprobarNumero(Estado, a % 10);
+			if (Estado == -1) return "El numero proporcionado no esta en base Gabriel.";
+			conversion += convertir(a % 10, k);
+			a /= 10;
+			k++;
+		}
+		return Integer.toString(conversion);		
 	}
+	
+	public int comprobarNumero(int Estado, int n) {
+		//System.out.print("Estado: "+Estado+"\tn: "+n);
+		switch(Estado) {
+			case 0:
+				if (n == 0) return 0;
+				if (n <= 2) return 1;
+				break;
+			case 1:
+				if (n < 2) return 1;
+				break;
+		}
+		return -1;
+	}
+	
+	public int convertir(int n, int k) {
+		int conv = n * ((int) Math.pow(2, k+1) - 1);
+		/*System.out.println("\tFact: "+((int) Math.pow(2, k+1) - 1)+
+				(((int) Math.pow(2, k+1) - 1)>=10?"":"\t")+"\tConv: "+conv);*/
+		return conv;
+	}
+	
 }
