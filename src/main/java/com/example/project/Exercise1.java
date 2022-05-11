@@ -28,6 +28,7 @@ public class Exercise1 {
 	}
 	
 	public int comprobarNumero(int Estado, int n) {
+		//System.out.print("Estado: "+Estado+"\tn: "+n);
 		switch(Estado) {
 			case 0:
 				if (n == 0) return 0;
@@ -41,7 +42,10 @@ public class Exercise1 {
 	}
 	
 	public int convertir(int n, int k) {
-		return n * ((int) Math.pow(2, k+1) - 1);
+		int conv = n * ((int) Math.pow(2, k+1) - 1);
+		/*System.out.println("\tFact: "+((int) Math.pow(2, k+1) - 1)+
+				(((int) Math.pow(2, k+1) - 1)>=10?"":"\t")+"\tConv: "+conv);*/
+		return conv;
 	}
 	
 }
